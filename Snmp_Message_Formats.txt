@@ -1,0 +1,74 @@
+SNMP ver. 1  Message Formats (Only GetRequest, GetNextRequest, SetRequest and GetResponse PDUs)
+
+------------------------------------------------------------------------------------------------
+|    Message Header   |                         Protocol Data Unit (PDU)                       |
+------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------
+| Version | Community | PDU type | Request ID | Error status | Error index | Variable bindings |
+------------------------------------------------------------------------------------------------
+
+                                                                     Variable bindings
+                                                           -------------------------------------
+                                                           | OID 1 | Value 1 | OID X | Value X |
+                                                           -------------------------------------
+
+
+
+Example:
+
+GET .1.3.6.1.2.1.1.4.0 (sysContact.0)
+ Version=0
+ Community=public
+ PDU type=get
+ Request ID=3AB2
+ Error status=0
+ Error index=0
+ OID=.1.3.6.1.2.1.1.4.0
+ Value=null
+
+Packet dump:
+----------------------------------------------------------------------------
+0000: 30 27 02 01  00 04 06 70  75 62 6C 69  63 A0 1A 02    0'.....publicá..
+0016: 02 3A B2 02  01 00 02 01  00 30 0E 30  0C 06 08 2B    .:.......0.0...+
+0032: 06 01 02 01  01 04 00 05  00                          .........
+----------------------------------------------------------------------------
+
+
+
+
+
+
+RESPONSE .1.3.6.1.2.1.1.4.0 (sysContact.0)
+ Version=0
+ Community=public
+ PDU type=get
+ Request ID=3AB2
+ Error status=0
+ Error index=0
+ OID=.1.3.6.1.2.1.1.4.0
+ Value=router
+
+Packet dump:
+----------------------------------------------------------------------------
+0000: 30 3F 02 01  00 04 06 70  75 62 6C 69  63 A2 32 02    0?.....public.2.
+0016: 02 3A B2 02  01 00 02 01  00 30 26 30  24 06 08 2B    .:.......0&0$..+
+0032: 06 01 02 01  01 04 00 04  18 53 63 69  65 6E 74 69    .........Scienti
+0048: 66 69 63 2D  41 74 6C 61  6E 74 61 2C  20 49 6E 63    fic-Atlanta, Inc
+0064: 2E                                                    .
+----------------------------------------------------------------------------
+
+
+
+
+
+
+
+Links:
+
+http://www.cisco.com/univercd/cc/td/doc/cisintwk/ito_doc/snmp.htm
+http://www.cisco.com/warp/public/535/3.html
+http://www.dpstele.com/layers/l2/snmp_l2_tut_part1.html
+http://www2.rad.com/networks/1995/snmp/snmp.htm
+http://en.wikipedia.org/wiki/Simple_network_management_protocol
+http://www.et.put.poznan.pl/snmp/main/mainmenu.html
+http://asn1.elibel.tm.fr/oid/
